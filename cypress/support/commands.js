@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// Cypress.Commands.add("iniciarSesion", (usuario, contraseña) => {
+//     cy.visit("https://parabank.parasoft.com/parabank/admin.htm");
+//     cy.wait(5000)
+//     cy.get("form > :nth-child(2) > input").type(usuario);
+//     cy.wait(5000)
+//     cy.get(":nth-child(4) > input").type(contraseña);
+//     cy.wait(5000)
+//     cy.get(":nth-child(5) > .button").click();
+// });
+
+Cypress.Commands.add('login', (usuario, contraseña) =>{
+    cy.get('form > :nth-child(2) > .input').type(usuario)
+    cy.get(':nth-child(4) > .input').type(contraseña)
+    cy.get(':nth-child(5) > .button').click()
+})
+ 
